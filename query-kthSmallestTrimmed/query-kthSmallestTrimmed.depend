@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1701349927 source:e:\computer files\query-kthsmallesttrimmed\main.cpp
+	<iostream>
+	<cstdio>
+	<algorithm>
+	<math.h>
+

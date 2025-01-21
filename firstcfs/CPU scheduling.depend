@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1695806201 source:/home/matlab/CPU scheduling/main.cpp
+	<iostream>
+	<string>
+

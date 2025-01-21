@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1700832689 source:e:\computer files\dijikstra\main.cpp
+	<iostream>
+	<string>
+	<cstring>
+

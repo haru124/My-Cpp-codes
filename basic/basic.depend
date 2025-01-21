@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1541829652 source:c:\users\home\desktop\harini c++\basic\main.cpp
+	<iostream>
+	<iomanip>
+	<math.h>
+

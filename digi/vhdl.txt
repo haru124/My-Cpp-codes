@@ -1,0 +1,236 @@
+boolean
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+ 
+entity first is
+  port (
+    a : in std_logic;
+    b : in std_logic;
+    --
+   lhs  : out std_logic;
+   rhs : out std_logic
+    );
+end first ;
+ 
+architecture rtl of first is
+begin
+  lhs <= (not a) or (not b);
+  rhs <= not (b and a);
+end rtl;
+
+half adder
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+ 
+entity halfadder is
+  port (
+    i_bit1  : in std_logic;
+    i_bit2  : in std_logic;
+    --
+    o_sum   : out std_logic;
+    o_carry : out std_logic
+    );
+end halfadder;
+ 
+architecture rtl of halfadder is
+begin
+  o_sum   <= i_bit1 xor i_bit2;
+  o_carry <= i_bit1 and i_bit2;
+end rtl;
+
+
+full adder
+
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+ 
+entity full_adder_vhdl_code is
+ Port ( A : in STD_LOGIC;
+ B : in STD_LOGIC;
+ Cin : in STD_LOGIC;
+ S : out STD_LOGIC;
+ Cout : out STD_LOGIC);
+end full_adder_vhdl_code;
+ 
+architecture gate_level of full_adder_vhdl_code is
+ 
+begin
+ 
+ S <= A XOR B XOR Cin ;
+ Cout <= (A AND B) OR (Cin AND A) OR (Cin AND B) ;
+ 
+end gate_level;
+
+decoder
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+ 
+entity decoder is
+port(
+a : in STD_LOGIC_VECTOR(1 downto 0);
+b : out STD_LOGIC_VECTOR(3 downto 0)
+);
+end decoder;
+architecture bhv of decoder is
+begin
+ 
+process(a)
+begin
+case a is
+when "00" => b <= "0001"; when "01" => b <= "0010"; when "10" => b <= "0100"; when "11" => b <= "1000";
+end case;
+end process;
+ 
+end bhv;
+
+priority encoder
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;      
+use ieee.numeric_std.all;
+
+entity pencoder is
+     port(
+         din : in STD_LOGIC_VECTOR(3 downto 0);
+         dout : out STD_LOGIC_VECTOR(1 downto 0)
+         );
+end pencoder;
+
+
+architecture priority_enc_arc of pencoder is
+begin
+
+    pri_enc : process (din) is
+    begin
+        if 
+            (din(3)='1') then
+            dout <= "11";
+        elsif (din(2)='1') then
+            dout <= "10";
+        elsif (din(1)='1') then
+            dout <= "01";
+        elsif (din(0)='1') then
+            dout <= "00";
+        end if;
+    end process pri_enc;
+    
+
+end priority_enc_arc;
+
+MULTIPLEXER
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+ 
+entity multiplexer is
+ port(
+ 
+     A,B,C,D : in STD_LOGIC;
+     S0,S1: in STD_LOGIC;
+     Z: out STD_LOGIC
+  );
+end multiplexer;
+ 
+architecture bhv of multiplexer is
+begin
+process (A,B,C,D,S0,S1) is
+begin
+  if (S0 ='0' and S1 = '0') then
+      Z <= A;
+  elsif (S0 ='1' and S1 = '0') then
+      Z <= B;
+  elsif (S0 ='0' and S1 = '1') then
+      Z <= C;
+  else
+      Z <= D;
+  end if;
+ 
+end process;
+end bhv;
+ 
+demux
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+ 
+entity demux is
+ port(
+ 
+ F : in STD_LOGIC;
+ S0,S1: in STD_LOGIC;
+ A,B,C,D: out STD_LOGIC
+ );
+end demux;
+ 
+architecture bhv of demux is
+begin
+process (F,S0,S1) is
+begin
+ if (S0 ='0' and S1 = '0') then
+ A <= F;
+ elsif (S0 ='1' and S1 = '0') then
+ B <= F;
+ elsif (S0 ='0' and S1 = '1') then
+ C <= F;
+ else
+ D <= F;
+ end if;
+ 
+end process;
+end bhv;
+
+d flipflop
+
+library ieee;
+use ieee. std_logic_1164.all;
+use ieee. std_logic_arith.all;
+use ieee. std_logic_unsigned.all;
+ 
+entity D_FF is
+PORT( D,CLOCK: in std_logic;
+Q: out std_logic);
+end D_FF;
+ 
+architecture behavioral of D_FF is
+begin
+process(CLOCK)
+begin
+if(CLOCK='1' and CLOCK'EVENT) then
+Q <= D;
+end if;
+end process;
+end behavioral;
+
+T FLIPFLOP
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+ 
+entity T_FF is
+port( T: in std_logic;
+Clock: in std_logic;
+Q: out std_logic);
+end T_FF;
+ 
+architecture Behavioral of T_FF is
+signal tmp: std_logic;
+begin
+process (Clock)
+begin
+if Clock'event and Clock='1' then
+ 
+if T='0' then
+tmp <= tmp;
+elsif T='1' then
+tmp <= not (tmp);
+end if;
+end if;
+end process;
+Q <= tmp;
+end Behavioral;

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1701032645 source:e:\computer files\queuewithstack\main.cpp
+	<iostream>
+	<stack>
+	<string>
+

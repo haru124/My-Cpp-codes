@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1598525753 source:d:\computer files\freqcharstring\main.cpp
+	<iostream>
+	<string>
+	<cstring>
+

@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1693411626 source:d:\computer files\product_search\main.cpp
+	<iostream>
+	<string>
+

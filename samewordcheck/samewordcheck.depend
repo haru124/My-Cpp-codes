@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1619342991 source:d:\computer files\samewordcheck\main.cpp
+	<iostream>
+	<string.h>
+
